@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frases Inspiradoras para la Paz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Frases Inspiradoras para la Paz</h1>
+        <p class="intro">
+            Completa el formulario para recibir una frase dedicada y poética,
+            inspirada por la palabra que más resuena contigo. Las frases están
+            influenciadas por San Juan de la Cruz y otros sabios para
+            promover la paz y la luz en el mundo.
+        </p>
+        <form method="post" class="form-card">
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% endif %}
+            <label for="nombre_usuario">Nombre</label>
+            <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Tu nombre" required>
+            <label for="palabra_importante">Palabra importante</label>
+            <input type="text" id="palabra_importante" name="palabra_importante" placeholder="Una palabra significativa" required>
+            <button type="submit">Generar frase</button>
+        </form>
+        {% if response %}
+            <div class="response">
+                <pre>{{ response }}</pre>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
